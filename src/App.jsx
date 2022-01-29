@@ -1,9 +1,12 @@
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from '@/pages/HomePage';
+import SearchResultPage from '@/pages/SearchResultPage';
 
 export default function App() {
   return (
-    <div>
-      App
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/searchResult" element={<SearchResultPage />} />
+    </Routes>
   );
 }

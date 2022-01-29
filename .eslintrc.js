@@ -23,6 +23,8 @@ module.exports = {
     given: 'readonly',
   },
   rules: {
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off',
     'react/react-in-jsx-scope': 'off',
   },
 };
