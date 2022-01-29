@@ -5,6 +5,10 @@ module.exports = {
     './jest.setup',
   ],
   testEnvironment: 'jsdom',
+  moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(jpg|jpeg|png|gif|ttf|eot|svg)$': '<rootDir>/__mocks__/fileMock.js',
+  },
   coverageThreshold: {
     global: {
       branches: 100,
