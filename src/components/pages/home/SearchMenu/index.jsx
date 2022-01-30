@@ -3,6 +3,7 @@ import { Wrapper, SubTitle } from './styles';
 export default function SearchMenu({
   menu,
   onChange,
+  onClick,
 }) {
   return (
     <Wrapper>
@@ -16,7 +17,7 @@ export default function SearchMenu({
           onChange={onChange}
           placeholder="메뉴를 입력하세요"
         />
-        <button type="button">
+        <button type="button" onClick={onClick}>
           검색
         </button>
       </div>

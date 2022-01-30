@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'no-useless-concat': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/no-array-index-key': 'off',
     'react/prop-types': 'off',

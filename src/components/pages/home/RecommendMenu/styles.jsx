@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
+export const Wrapper = styled.div`
+  margin-top: 70px;
+`;
+
 export const SubTitle = styled.h2`
   margin: 20px 0;
   text-align: left;
-`;
-
-export const RecommendMenus = styled.div`
-  margin-top: 70px;
 `;
 
 export const RecommendButtons = styled.div`
