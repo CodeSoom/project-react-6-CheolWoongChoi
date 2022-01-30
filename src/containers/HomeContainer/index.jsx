@@ -1,42 +1,25 @@
 import { useState } from 'react';
+import RecommendMenu from '@/components/pages/home/RecommendMenu';
+import SearchMenu from '@/components/pages/home/SearchMenu';
 
 import {
-  Wrapper, Title, RecommendMenus, RecommendButton, SubTitle, RecommendButtons, SearchMenu,
+  Wrapper, Title,
 } from './styles';
 
-const menus = ['한식', '일식', '중식', '양식', '분식', '빵', '간식'];
-
 export default function HomeContainer() {
-  const [searchText, setSearchText] = useState('');
+  const [menu, setMenu] = useState('');
+
+  const handleChangeMenu = (e) => {
+    setMenu(e.target.value);
+  };
 
   return (
     <Wrapper>
       <Title>
         Today Menu Information
       </Title>
-      <RecommendMenus>
-        <SubTitle>
-          오늘의 추천
-        </SubTitle>
-        <RecommendButtons>
-          {menus.map((menu, idx) => (
-            <RecommendButton key={`menu-${idx}`}>
-              {menu}
-            </RecommendButton>
-          ))}
-        </RecommendButtons>
-      </RecommendMenus>
-      <SearchMenu>
-        <SubTitle>
-          생각나는 음식을 알려주세요!
-        </SubTitle>
-        <div>
-          <input type="text" value={searchText} />
-          <button type="button">
-            검색
-          </button>
-        </div>
-      </SearchMenu>
+      <RecommendMenu />
+      <SearchMenu menu={menu} onChange={handleChangeMenu} />
     </Wrapper>
   );
 }

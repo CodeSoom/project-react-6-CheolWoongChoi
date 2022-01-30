@@ -27,5 +27,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/no-array-index-key': 'off',
+    'react/prop-types': 'off',
   },
 };
