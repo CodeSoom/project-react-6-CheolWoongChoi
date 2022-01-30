@@ -1,11 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import SearchResultContainer from '@/containers/SearchResultContainer';
 
 export default function SearchResultPage() {
-  const { keyword } = useParams();
+  const [searchParams] = useSearchParams();
 
   return (
-    <SearchResultContainer keyword={keyword} />
+    <SearchResultContainer keyword={searchParams.get('keyword') || ''} />
   );
 }

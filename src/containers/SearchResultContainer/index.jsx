@@ -27,7 +27,7 @@ export default function SearchResultContainer({ keyword }) {
     getLatLng();
   }, []);
 
-  if (!keyword && isEmptyObj(latLng)) {
+  if (!keyword || isEmptyObj(latLng)) {
     return (
       <div>
         Loading...
