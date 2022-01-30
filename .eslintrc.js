@@ -28,6 +28,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'no-useless-concat': 'off',
     'no-use-before-define': 'off',
+    'no-shadow': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/no-array-index-key': 'off',
     'react/prop-types': 'off',
