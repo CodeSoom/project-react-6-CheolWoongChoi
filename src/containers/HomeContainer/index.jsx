@@ -16,9 +16,8 @@ export default function HomeContainer() {
     setMenu(e.target.value);
   };
 
-  // eslint-disable-next-line
-  const handleClickRecommendMenu = (menu) => {
-    navigate('/searchResult' + `?menu=${menu}`);
+  const handleClickRecommendMenu = (keyword) => {
+    navigate('/searchResult' + `?keyword=${keyword}`);
   };
 
   const handleClickSearch = () => {
@@ -26,7 +25,7 @@ export default function HomeContainer() {
       return;
     }
 
-    navigate('/searchResult' + `?menu=${menu}`);
+    navigate('/searchResult' + `?keyword=${menu}`);
   };
 
   return (
