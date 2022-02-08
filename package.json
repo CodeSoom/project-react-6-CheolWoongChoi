@@ -8,10 +8,6 @@
     "build": "NODE_ENV=production webpack --mode=production",
     "deploy": "gh-pages -d dist -b release -m 'release 업데이트'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CheolWoongChoi/project-react-6-CheolWoongChoi.git"
-  },
   "author": "CheolWoong Choi",
   "license": "ISC",
   "devDependencies": {
