@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import KakaoMap from '@/components/common/KaKaoMap';
+import KakaoMap from '@/components/common/KakaoMap';
 import { isEmptyObj } from '@/utils/common';
 
 export default function SearchResultContainer({ keyword }) {
