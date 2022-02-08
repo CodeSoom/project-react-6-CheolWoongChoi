@@ -1,6 +1,19 @@
 const path = require('path');
+const dotenv = require('dotenv');
+const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+if (isProduction) {
+  dotenv.config({ path: path.resolve(__dirname, '.env.production') });
+}
+
+if (!isProduction) {
+  dotenv.config({ path: path.resolve(__dirname, '.env.development') });
+}
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
@@ -8,7 +21,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: process.env.NODE_ENV === 'production' ? '.' : '/',
+    publicPath: isProduction ? '.' : '/',
   },
   module: {
     rules: [
@@ -39,6 +52,9 @@ module.exports = {
           },
         },
       ],
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
     }),
   ],
   resolve: {

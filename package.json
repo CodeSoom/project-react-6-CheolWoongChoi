@@ -4,7 +4,7 @@
   "description": "오늘의 메뉴를 알려주는 서비스",
   "private": true,
   "scripts": {
-    "start": "webpack serve --mode=development",
+    "start": "NODE_ENV=development webpack serve --mode=development",
     "build": "NODE_ENV=production webpack --mode=production",
     "deploy": "gh-pages -d dist"
   },
@@ -14,10 +14,6 @@
   },
   "author": "CheolWoong Choi",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CheolWoongChoi/project-react-6-CheolWoongChoi/issues"
-  },
-  "homepage": "https://github.com/CheolWoongChoi/project-react-6-CheolWoongChoi#readme",
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
@@ -29,6 +25,7 @@
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.5.1",
+    "dotenv": "^16.0.0",
     "eslint": "^8.8.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.25.4",
