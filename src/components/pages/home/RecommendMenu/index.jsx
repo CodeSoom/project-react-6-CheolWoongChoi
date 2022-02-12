@@ -1,27 +1,38 @@
+import { Button } from '@/components/common';
+import menus from '@/fixtures/menus';
+
 import {
   SubTitle,
   Wrapper,
-  RecommendButton,
   RecommendButtons,
 } from './styles';
 
-const menus = ['한식', '일식', '중식', '양식', '분식', '빵', '간식'];
-
 export default function RecommendMenu({ onClick }) {
+  const getRandomMenus = () => {
+    const copiedMenus = [...menus];
+    const randomMenus = [];
+
+    new Array(8).fill(true).forEach(() => {
+      const index = Math.floor(Math.random() * copiedMenus.length);
+
+      randomMenus.push(...(copiedMenus.splice(index, 1)));
+    });
+
+    return randomMenus;
+  };
+
   return (
     <Wrapper>
-
       <SubTitle>
         오늘의 추천
       </SubTitle>
       <RecommendButtons>
-        {menus.map((menu, idx) => (
-          <RecommendButton key={`menu-${idx}`} onClick={() => onClick(menu)}>
+        {getRandomMenus().map((menu, idx) => (
+          <Button key={`button-${idx}`} onClick={() => onClick(menu)}>
             {menu}
-          </RecommendButton>
+          </Button>
         ))}
       </RecommendButtons>
     </Wrapper>
-
   );
 }

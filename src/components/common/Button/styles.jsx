@@ -8,6 +8,7 @@ export const ButtonBox = styled.button`
   border-radius: 5px;
   padding: 20px;
   width: 100%;
+  font-size: 20px;
   color: #fff;
   cursor: pointer;
 
