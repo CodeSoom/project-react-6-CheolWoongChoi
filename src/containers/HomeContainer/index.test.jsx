@@ -11,9 +11,9 @@ describe('HomeContainer', () => {
   );
 
   it('타이틀을 화면에 보여준다.', () => {
-    const title = 'Today Menu Information';
-    const { getByText } = renderHomeContainer();
+    const title = '먹고 싶은 메뉴를 골라보세요!';
+    const { container } = renderHomeContainer();
 
-    expect(getByText(title)).not.toBeNull();
+    expect(container).toHaveTextContent(title);
   });
 });
