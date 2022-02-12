@@ -22,6 +22,8 @@ module.exports = {
     context: 'readonly',
     given: 'readonly',
     kakao: 'readonly',
+    Feature: 'readonly',
+    Scenario: 'readonly',
   },
   rules: {
     'import/extensions': 'off',
