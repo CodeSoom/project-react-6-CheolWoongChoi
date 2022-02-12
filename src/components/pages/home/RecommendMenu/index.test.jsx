@@ -1,4 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
+import menus from '@/fixtures/menus';
 
 import RecommendMenu from '.';
 
@@ -6,30 +7,28 @@ describe('RecommendMenu', () => {
   const handleClick = jest.fn();
   const renderRecommendMenu = () => render(<RecommendMenu onClick={handleClick} />);
 
-  it('서브 타이틀이 화면에 나타난다.', () => {
-    const subTitle = '오늘의 추천';
-    const { getByText } = renderRecommendMenu();
-
-    expect(getByText(subTitle)).not.toBeNull();
-  });
-
-  it('추천 메뉴가 화면에 나타난다.', () => {
-    const menus = ['한식', '일식', '중식', '양식', '분식', '빵', '간식'];
-    const { getByText } = renderRecommendMenu();
+  it('추천 메뉴는 화면에 8개 나타난다.', () => {
+    const { queryByText } = renderRecommendMenu();
+    let count = 0;
 
     menus.forEach((menu) => {
-      expect(getByText(menu)).not.toBeNull();
+      if (queryByText(menu)) {
+        count += 1;
+      }
     });
+
+    expect(count).toBe(8);
   });
 
   it('추천 메뉴를 클릭하면, onClick 이벤트 핸들러가 실행된다.', () => {
-    const menus = ['한식', '일식', '중식', '양식', '분식', '빵', '간식'];
-    const { getByText } = renderRecommendMenu();
+    const { queryByText } = renderRecommendMenu();
 
     menus.forEach((menu) => {
-      fireEvent.click(getByText(menu));
+      if (queryByText(menu)) {
+        fireEvent.click(queryByText(menu));
+      }
     });
 
-    expect(handleClick).toBeCalledTimes(7);
+    expect(handleClick).toBeCalledTimes(8);
   });
 });

@@ -24,7 +24,7 @@ export default function RecommendMenu({ onClick }) {
   return (
     <Wrapper>
       <SubTitle>
-        오늘의 추천
+        메뉴를 추천해봤어요! 😁
       </SubTitle>
       <RecommendButtons>
         {getRandomMenus().map((menu, idx) => (
