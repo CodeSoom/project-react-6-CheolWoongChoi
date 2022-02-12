@@ -21,9 +21,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
-      - run: npm run build
-      - name: Deploy 🚀
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: npm test
+      # - name: Lint
+      #   run: npm run lint
+      - name: Build
+        run: npm run build
+      - name: Deploy
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
