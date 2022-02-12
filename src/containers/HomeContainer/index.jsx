@@ -31,7 +31,7 @@ export default function HomeContainer() {
   return (
     <Wrapper>
       <Title>
-        Today Menu Information
+        먹고 싶은 메뉴를 골라보세요! 💡
       </Title>
       <RecommendMenu onClick={handleClickRecommendMenu} />
       <SearchMenu

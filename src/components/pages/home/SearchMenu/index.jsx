@@ -1,4 +1,6 @@
-import { Wrapper, SubTitle } from './styles';
+import {
+  SearchMenuBox, SubTitle, MenuInputBox, MenuInput, SubmitButton,
+} from './styles';
 
 export default function SearchMenu({
   menu,
@@ -6,21 +8,21 @@ export default function SearchMenu({
   onClick,
 }) {
   return (
-    <Wrapper>
+    <SearchMenuBox>
       <SubTitle>
         생각나는 메뉴를 알려주세요!
       </SubTitle>
-      <div>
-        <input
+      <MenuInputBox>
+        <MenuInput
           type="text"
           value={menu}
           onChange={onChange}
           placeholder="메뉴를 입력하세요"
         />
-        <button type="button" onClick={onClick}>
+        <SubmitButton type="button" onClick={onClick}>
           검색
-        </button>
-      </div>
-    </Wrapper>
+        </SubmitButton>
+      </MenuInputBox>
+    </SearchMenuBox>
   );
 }
