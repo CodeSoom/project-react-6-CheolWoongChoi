@@ -1,3 +1,5 @@
+import { memo, useCallback } from 'react';
+
 import { Button } from '@/components/common';
 import menus from '@/fixtures/menus';
 
@@ -7,8 +9,8 @@ import {
   RecommendButtons,
 } from './styles';
 
-export default function RecommendMenu({ onClick }) {
-  const getRandomMenus = () => {
+function RecommendMenu({ onClick }) {
+  const getRandomMenus = useCallback(() => {
     const copiedMenus = [...menus];
     const randomMenus = [];
 
@@ -19,7 +21,7 @@ export default function RecommendMenu({ onClick }) {
     });
 
     return randomMenus;
-  };
+  }, []);
 
   return (
     <Wrapper>
@@ -36,3 +38,5 @@ export default function RecommendMenu({ onClick }) {
     </Wrapper>
   );
 }
+
+export default memo(RecommendMenu);
