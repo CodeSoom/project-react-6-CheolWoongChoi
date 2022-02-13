@@ -1,6 +1,11 @@
 import { render } from '@testing-library/react';
+import { useSelector } from 'react-redux';
 
 import SearchResultContainer from '.';
+
+useSelector.mockImplementation((selector) => selector({
+  latLng: {},
+}));
 
 describe('SearchResultContainer', () => {
   const renderSearchResultContainer = ({

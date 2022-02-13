@@ -1,16 +1,18 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import RecommendMenu from '@/components/pages/home/RecommendMenu';
 import SearchMenu from '@/components/pages/home/SearchMenu';
+import { useGeoLocation } from '@/hooks';
 
 import {
   Wrapper, Title,
 } from './styles';
 
 export default function HomeContainer() {
-  const [menu, setMenu] = useState('');
   const navigate = useNavigate();
+  const { getLatLng } = useGeoLocation();
+  const [menu, setMenu] = useState('');
 
   const handleChangeMenu = (e) => {
     setMenu(e.target.value);
@@ -27,6 +29,10 @@ export default function HomeContainer() {
 
     navigate('/searchResult' + `?keyword=${menu}`);
   };
+
+  useEffect(() => {
+    getLatLng();
+  }, []);
 
   return (
     <Wrapper>
