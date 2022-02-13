@@ -1,7 +1,12 @@
 import { render } from '@testing-library/react';
+import { useSelector } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
 import HomeContainer from '.';
+
+useSelector.mockImplementation((selector) => selector({
+  latLng: {},
+}));
 
 describe('HomeContainer', () => {
   const renderHomeContainer = () => render(
