@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { setPlaces } from '@/slices';
 
 export default function logics({ latLng, keyword }) {
+  const dispatch = useDispatch();
   const infoWindowRef = useRef(null);
   const mapRef = useRef(null);
 
@@ -26,7 +30,6 @@ export default function logics({ latLng, keyword }) {
 
     ps.keywordSearch(keyword, placesSearchCB, {
       useMapCenter: true,
-      // useMapBounds: true,
     });
   };
 
@@ -42,15 +45,16 @@ export default function logics({ latLng, keyword }) {
     console.log(pagination);
 
     if (status === kakao.maps.services.Status.OK) {
-      // const bounds = new kakao.maps.LatLngBounds();
+      handleSetPlaces(data);
 
       for (let i = 0; i < data.length; i += 1) {
         displayMarker(data[i]);
-        // bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
       }
-
-      // mapRef.current.setBounds(bounds);
     }
+  };
+
+  const handleSetPlaces = (places) => {
+    dispatch(setPlaces(places));
   };
 
   const displayMarker = (place) => {

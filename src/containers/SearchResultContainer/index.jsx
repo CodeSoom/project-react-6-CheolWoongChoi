@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 import KakaoMap from '@/components/common/KakaoMap';
+import Places from '@/components/pages/searchResult/Places';
 import { useGeoLocation } from '@/hooks';
 
 export default function SearchResultContainer({ keyword }) {
-  const { latLng } = useSelector((state) => state);
+  const { latLng, places } = useSelector((state) => state);
   const { getLatLng, isNoLatLng } = useGeoLocation();
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function SearchResultContainer({ keyword }) {
   return (
     <div>
       <KakaoMap latLng={latLng} keyword={keyword} />
+      <Places places={places} />
     </div>
   );
 }
