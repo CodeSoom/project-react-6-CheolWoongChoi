@@ -6,5 +6,6 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h1`
   margin: 50px 0 0;
+  font-size: 40px;
   text-align: center;
 `;

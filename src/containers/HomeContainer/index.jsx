@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import RecommendMenu from '@/components/pages/home/RecommendMenu';
@@ -16,9 +16,9 @@ export default function HomeContainer() {
     setMenu(e.target.value);
   };
 
-  const handleClickRecommendMenu = (keyword) => {
+  const handleClickRecommendMenu = useCallback((keyword) => {
     navigate('/searchResult' + `?keyword=${keyword}`);
-  };
+  }, []);
 
   const handleClickSearch = () => {
     if (!menu) {
@@ -31,7 +31,7 @@ export default function HomeContainer() {
   return (
     <Wrapper>
       <Title>
-        Today Menu Information
+        먹고 싶은 메뉴를 골라보세요! 💡
       </Title>
       <RecommendMenu onClick={handleClickRecommendMenu} />
       <SearchMenu
