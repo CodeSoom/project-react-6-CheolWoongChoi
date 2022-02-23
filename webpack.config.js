@@ -51,6 +51,7 @@ module.exports = {
             ignore: ['**/*.html'],
           },
         },
+        './404.html',
       ],
     }),
     new webpack.DefinePlugin({
