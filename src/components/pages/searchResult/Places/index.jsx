@@ -15,7 +15,7 @@ export default function Places({ places }) {
   return (
     <PlacesBox>
       {places.map((place) => (
-        <Place place={place} />
+        <Place key={place} place={place} />
       ))}
     </PlacesBox>
   );
