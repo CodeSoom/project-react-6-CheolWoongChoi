@@ -17,9 +17,16 @@ export default function useLogics() {
     navigate('/searchResult' + `?keyword=${menu}`);
   };
 
+  const handleEnterKey = (e) => {
+    if (e.key === 'Enter') {
+      handleClickSearch();
+    }
+  };
+
   return {
     menu,
     handleChangeMenu,
     handleClickSearch,
-  }
+    handleEnterKey,
+  };
 }

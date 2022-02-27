@@ -9,6 +9,7 @@ export default function SearchMenu({
   menu,
   onChange,
   onClick,
+  onKeyPress,
 }) {
   return (
     <SearchMenuBox>
@@ -17,6 +18,7 @@ export default function SearchMenu({
           type="text"
           value={menu}
           onChange={onChange}
+          onKeyPress={onKeyPress}
           placeholder="메뉴를 입력하세요"
         />
         <SubmitButton role="search" type="button" onClick={onClick}>

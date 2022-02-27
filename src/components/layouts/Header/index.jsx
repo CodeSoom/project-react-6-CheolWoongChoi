@@ -5,7 +5,9 @@ import { HeaderBox, HomeButton } from './styles';
 import useLogics from './logics';
 
 export default function Header() {
-  const { menu, handleChangeMenu, handleClickSearch } = useLogics();
+  const {
+    menu, handleChangeMenu, handleClickSearch, handleEnterKey,
+  } = useLogics();
 
   return (
     <HeaderBox>
@@ -18,6 +20,7 @@ export default function Header() {
         menu={menu}
         onChange={handleChangeMenu}
         onClick={handleClickSearch}
+        onKeyPress={handleEnterKey}
       />
     </HeaderBox>
   );
