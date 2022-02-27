@@ -8,12 +8,6 @@ export default function logics({ latLng, keyword }) {
   const infoWindowRef = useRef(null);
   const mapRef = useRef(null);
 
-  useEffect(() => {
-    createKakaoMap(latLng);
-    searchPlaceByKeyword({ keyword });
-    // searchPlaceByCategory({ latLng });
-  }, []);
-
   const createKakaoMap = ({ latitude, longitude }) => {
     const mapContainer = document.getElementById('map');
     const mapOption = {
@@ -68,6 +62,12 @@ export default function logics({ latLng, keyword }) {
       infoWindowRef.current.open(mapRef.current, marker);
     });
   };
+
+  useEffect(() => {
+    createKakaoMap(latLng);
+    searchPlaceByKeyword({ keyword });
+    // searchPlaceByCategory({ latLng });
+  }, [keyword]);
 
   return {
 
