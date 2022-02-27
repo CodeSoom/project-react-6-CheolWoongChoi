@@ -17,6 +17,9 @@ export default function useGeoLocation() {
   };
 
   const getLatLng = () => {
+    console.log('/// getLatLng ///');
+    console.log(latLng);
+
     if (isNoLatLng(latLng)) {
       navigator.geolocation.getCurrentPosition(handleGetLatLngSuccess, handleGetLatLngError);
     }
