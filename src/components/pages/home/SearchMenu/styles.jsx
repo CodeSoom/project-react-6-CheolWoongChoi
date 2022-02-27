@@ -2,7 +2,11 @@ import styled from '@emotion/styled';
 import { primary } from '@/styles/colors';
 
 export const SearchMenuBox = styled.div`
-  margin-top: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
 `;
 
 export const SubTitle = styled.h2`
@@ -19,7 +23,7 @@ export const MenuInput = styled.input`
   outline: none;
   border: solid 2px ${primary.main};
   padding: 0 10px;
-  width: 65%;
+  width: 100%;
   height: 50px;
 
   &::placeholder {
@@ -30,8 +34,9 @@ export const MenuInput = styled.input`
 export const SubmitButton = styled.button`
   background-color: ${primary.main};
   border: none;
-  padding: 0 25px;
+  padding: 0 15px;
   height: 54px;
   cursor: pointer;
   color: #fff;
+  font-size: 20px;
 `;

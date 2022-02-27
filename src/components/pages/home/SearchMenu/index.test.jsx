@@ -5,17 +5,15 @@ import SearchMenu from '.';
 describe('SearchMenu', () => {
   const handleChange = jest.fn();
   const handleClick = jest.fn();
+  const handleEnterKey = jest.fn();
 
   const renderSearchMenu = () => render(
-    <SearchMenu onChange={handleChange} onClick={handleClick} />,
+    <SearchMenu
+      onChange={handleChange}
+      onClick={handleClick}
+      onKeyPress={handleEnterKey}
+    />,
   );
-
-  it('서브 타이틀이 화면에 나타난다.', () => {
-    const subTitle = '생각나는 메뉴를 알려주세요!';
-    const { getByText } = renderSearchMenu();
-
-    expect(getByText(subTitle)).not.toBeNull();
-  });
 
   it('onChange 이벤트 핸들러가 실행된다.', () => {
     const placeholderText = '메뉴를 입력하세요';
@@ -27,10 +25,19 @@ describe('SearchMenu', () => {
   });
 
   it('onClick 이벤트 핸들러가 실행된다.', () => {
-    const { getByText } = renderSearchMenu();
+    const { getByRole } = renderSearchMenu();
 
-    fireEvent.click(getByText('검색'));
+    fireEvent.click(getByRole('search'));
 
     expect(handleClick).toBeCalled();
+  });
+
+  it('onKeyPress 이벤트 핸들러가 실행된다.', () => {
+    const placeholderText = '메뉴를 입력하세요';
+    const { getByPlaceholderText } = renderSearchMenu();
+
+    fireEvent.keyPress(getByPlaceholderText(placeholderText), { key: 'Enter', code: 'Enter', charCode: 13 });
+
+    expect(handleEnterKey).toBeCalled();
   });
 });
