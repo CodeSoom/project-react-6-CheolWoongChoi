@@ -9,12 +9,14 @@ import {
   RecommendButtons,
 } from './styles';
 
+const RECOMMEND_MENU_COUNT = 16;
+
 function RecommendMenu({ onClick }) {
   const getRandomMenus = useCallback(() => {
     const copiedMenus = [...menus];
     const randomMenus = [];
 
-    new Array(8).fill(true).forEach(() => {
+    new Array(RECOMMEND_MENU_COUNT).fill(true).forEach(() => {
       const index = Math.floor(Math.random() * copiedMenus.length);
 
       randomMenus.push(...(copiedMenus.splice(index, 1)));

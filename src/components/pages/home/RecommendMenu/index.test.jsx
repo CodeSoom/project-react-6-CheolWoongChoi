@@ -7,7 +7,7 @@ describe('RecommendMenu', () => {
   const handleClick = jest.fn();
   const renderRecommendMenu = () => render(<RecommendMenu onClick={handleClick} />);
 
-  it('추천 메뉴는 화면에 8개 나타난다.', () => {
+  it('추천 메뉴는 화면에 16개 나타난다.', () => {
     const { queryByText } = renderRecommendMenu();
     let count = 0;
 
@@ -17,7 +17,7 @@ describe('RecommendMenu', () => {
       }
     });
 
-    expect(count).toBe(8);
+    expect(count).toBe(16);
   });
 
   it('추천 메뉴를 클릭하면, onClick 이벤트 핸들러가 실행된다.', () => {
@@ -29,6 +29,6 @@ describe('RecommendMenu', () => {
       }
     });
 
-    expect(handleClick).toBeCalledTimes(8);
+    expect(handleClick).toBeCalledTimes(16);
   });
 });
