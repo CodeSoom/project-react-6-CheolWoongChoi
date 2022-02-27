@@ -23,7 +23,7 @@ export default function HomeContainer() {
   return (
     <Wrapper>
       <Title>
-        먹고 싶은 메뉴를 골라보세요! 💡
+        오늘의 메뉴를 골라보세요! 🍛
       </Title>
       <RecommendMenu onClick={handleClickRecommendMenu} />
     </Wrapper>

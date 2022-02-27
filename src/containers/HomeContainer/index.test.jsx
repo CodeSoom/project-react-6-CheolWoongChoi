@@ -16,7 +16,7 @@ describe('HomeContainer', () => {
   );
 
   it('타이틀을 화면에 보여준다.', () => {
-    const title = '먹고 싶은 메뉴를 골라보세요!';
+    const title = '오늘의 메뉴를 골라보세요!';
     const { container } = renderHomeContainer();
 
     expect(container).toHaveTextContent(title);
